@@ -1,16 +1,16 @@
 {
   "expo": {
-    "name": "radaroficinas",
-    "slug": "radaroficinas",
+    "name": "radardeoficinas",
+    "slug": "radardeoficinas",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "icon": "./assets/images/NearGarage.png",
+    "scheme": "radardeoficinas",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/images/NearGarage.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#2FAE69"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -19,10 +19,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "radardeoficinas"
     },
     "web": {
-      "favicon": "./assets/images/favicon.png"
-    }
+      "favicon": "./assets/images/NearGarage.png"
+    },
+    "android": {
+      "package": "radardeoficinas.apk"
+    },
+    "entryPoint": "node_modules/expo/AppEntry.js"
   }
 }

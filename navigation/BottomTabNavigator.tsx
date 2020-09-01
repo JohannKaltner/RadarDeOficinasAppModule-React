@@ -6,8 +6,9 @@ import * as React from 'react';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import TabOneScreen from '../screens/TabOneScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
-import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
+import ExibicaoPrincipal from '../screens/ExibicaoPrincipal';
+import { BottomTabParamList, TabOneParamList, TabTwoParamList, TabThreeParamList } from '../types';
+import PaginaDeLogin from '../screens/Login';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -16,20 +17,27 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
+      initialRouteName="Inicio"
+      tabBarOptions={{ activeTintColor: '#2fae69' }}>
       <BottomTab.Screen
-        name="TabOne"
+        name="Inicio"
         component={TabOneNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-home" color={'#2fae69'} />,
         }}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoNavigator}
+        name="Oficinas"
+        component={ExibicaoPrincipalNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-car" color={'#2fae69'} />,
+        }}
+      />
+       <BottomTab.Screen
+        name="Perfil"
+        component={TabThreeNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-person" color={'#2fae69'} />,
         }}
       />
     </BottomTab.Navigator>
@@ -52,7 +60,7 @@ function TabOneNavigator() {
       <TabOneStack.Screen
         name="TabOneScreen"
         component={TabOneScreen}
-        options={{ headerTitle: 'Tab One Title' }}
+        options={{ headerTitle: 'Inicio',headerStyle: { backgroundColor: '#2fae69' }, headerTitleStyle: { color: 'white' } }} 
       />
     </TabOneStack.Navigator>
   );
@@ -60,14 +68,28 @@ function TabOneNavigator() {
 
 const TabTwoStack = createStackNavigator<TabTwoParamList>();
 
-function TabTwoNavigator() {
+function ExibicaoPrincipalNavigator() {
   return (
     <TabTwoStack.Navigator>
       <TabTwoStack.Screen
-        name="TabTwoScreen"
-        component={TabTwoScreen}
-        options={{ headerTitle: 'Tab Two Title' }}
+        name="Oficinas"
+        component={ExibicaoPrincipal}
+        options={{ headerTitle: 'Oficinas', headerStyle: { backgroundColor: '#2fae69' },headerTitleStyle: { color: 'white' } }}
       />
     </TabTwoStack.Navigator>
+  );
+}
+
+const TabThreeStack = createStackNavigator<TabThreeParamList>();
+
+function TabThreeNavigator() {
+  return (
+    <TabThreeStack.Navigator>
+      <TabThreeStack.Screen
+        name="TabThreeNavigation"
+        component={PaginaDeLogin}
+        options={{ headerTitle: 'Teste',headerStyle: { backgroundColor: '#2fae69' }, headerTitleStyle: { color: 'white' } }}  
+      />
+    </TabThreeStack.Navigator>
   );
 }
